@@ -1,5 +1,6 @@
 #Źródło problemu: https://www.codingame.com/ide/puzzle/power-of-thor-episode-1
 #Twórca rozwiązania: Aleksandra Formela, s17402
+
 import sys
 import math
 

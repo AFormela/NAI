@@ -29,9 +29,11 @@ class Ball(object):
         The constructor for Ball class.
 
         Parameters:
-            x and y coordinates
-            width and height of a ball
-            color of a ball
+            x (float): x coordinate
+            y (float): y coordinate
+            width (int): of a ball
+            height (int): of a ball
+            color (tuple): of a ball
         """
         self.speed_x = 7 * random.choice((1, -1))
         self.speed_y = 7 * random.choice((1, -1))
@@ -41,6 +43,11 @@ class Ball(object):
     def move(self, board, racketPlayer, racketOpponent):
         """
         The function to move ball in x and y directions
+
+        Parameters:
+            board
+            racketPlayer
+            racketOpponent
         """
         self.rect.x += self.speed_x
         self.rect.y += self.speed_y
@@ -61,6 +68,16 @@ class Ball(object):
     def restart(self, board, current_time, score_time):
         """
         The function to restart the game after winning or losing the match
+
+        Parameters:
+            board(Board): board object
+            current_time (int): in ticks. Gets the current time
+            score_time (int): in ticks. Gets the score time
+
+            Returns:
+            score_time (int): in ticks. Gets the score time
+            OR:
+            None
         """
         self.rect.center = (board.width / 2, board.height / 2)
 
@@ -75,6 +92,9 @@ class Ball(object):
     def draw(self, board):
         """
         The function to draw the ball on the board
+
+        Parameters:
+        board (Board): board object
         """
         pygame.draw.ellipse(board.screen, self.color, self.rect)
 
@@ -86,8 +106,9 @@ class Racket(object):
 
         Parameters:
             x and y coordinates
-            width and height of a racket
-            color of a racket
+            width (int): of a racket
+            height (int): of a racket
+            color (tuple): of a racket
         """
         self.rect = pygame.Rect(x, y, width, height)
         self.color = color
@@ -95,6 +116,9 @@ class Racket(object):
     def draw(self, board):
         """
         The function to draw the racket on the board
+        
+        Parameters:
+            board (Board): board object
         """
         pygame.draw.rect(board.screen, self.color, self.rect)
 
@@ -105,8 +129,8 @@ class Player(object):
         The constructor for Player class.
 
         Parameters:
-            racket
-            speed of the racket
+            racket (Racket): racket object
+            speed (float): speed of the racket
         """
         self.racket = racket
         self.speed = speed
@@ -119,14 +143,17 @@ class HumanPlayer(Player):
         The constructor for HumanPlayer class that inheirts from class Player
 
         Parameters:
-            racket
-            speed of the racket
+            racket (Racket): racket object
+            speed (float): speed of the racket
         """
         super(HumanPlayer, self).__init__(racket, speed)
 
     def move(self, board):
         """
-        The function to move HumnanPlayer racket in x and y directions
+        The function to move HumnanPlayer
+
+        Parameters:
+        board (Board): board object
         """
         self.racket.rect.y += self.speed
         if self.racket.rect.top <= 0:
@@ -141,14 +168,18 @@ class AiPlayer(Player):
         The constructor for AiPlayer class that inheirts from class Player
 
         Parameters:
-            racket
-            speed of the racket
+            racket (Racket): racket object
+            speed (float): speed of the racket
         """
         super(AiPlayer, self).__init__(racket, speed)
 
     def move(self, board, ball):
         """
         The function to move AiPlayer racket in x and y directions
+
+        Parameters:
+            board (Board): board object
+            ball (Ball): ball object
         """
         if self.racket.rect.top < ball.rect.y - 50:
             self.racket.rect.top += self.speed
@@ -169,7 +200,8 @@ class PongGame(object):
         The constructor for PongGame class.
 
         Parameters:
-            widht and height of the game window
+            widht (int): of the game window
+            height (int): of the game window
         """
 
         self.board = Board(width, height)
@@ -181,7 +213,7 @@ class PongGame(object):
 
     def run(self):
         """
-        The function to initialize the window 
+        The function to run the program
         """    
         light_green = (50, 205, 50)
         red = (220, 20, 60)
@@ -259,7 +291,8 @@ class Board(object):
         The constructor for Board class.
 
         Parameters:
-            width and height of the window with game board
+            width(int): of the window with game board
+            height(int): of the window with game board
         """    
         self.background_color = pygame.Color('grey12')
         self.screen = pygame.display.set_mode((width, height))
@@ -281,8 +314,8 @@ class Board(object):
         The function to restart the board
 
         Parameters:
-            current_time
-            score_time
+            current_time (int): in ticks. Gets the current time
+            score_time (int): in ticks. Gets the score time
         """
         if current_time - score_time < 700:
             three = font.render("3", False, red)

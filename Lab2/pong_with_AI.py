@@ -41,6 +41,11 @@ class Ball(object):
     def move(self, board, racketPlayer, racketOpponent):
         """
         The function to move ball in x and y directions
+
+        Parameters:
+            board
+            racketPlayer
+            racketOpponent
         """
         self.rect.x += self.speed_x
         self.rect.y += self.speed_y
@@ -61,6 +66,11 @@ class Ball(object):
     def restart(self, board, current_time, score_time):
         """
         The function to restart the game after winning or losing the match
+
+        Parameters:
+            board
+            current_time
+            score_time
         """
         self.rect.center = (board.width / 2, board.height / 2)
 
@@ -75,6 +85,9 @@ class Ball(object):
     def draw(self, board):
         """
         The function to draw the ball on the board
+
+        Parameters:
+        board
         """
         pygame.draw.ellipse(board.screen, self.color, self.rect)
 
@@ -95,6 +108,9 @@ class Racket(object):
     def draw(self, board):
         """
         The function to draw the racket on the board
+        
+        Parameters:
+            board
         """
         pygame.draw.rect(board.screen, self.color, self.rect)
 
@@ -126,7 +142,10 @@ class HumanPlayer(Player):
 
     def move(self, board):
         """
-        The function to move HumnanPlayer racket in x and y directions
+        The function to move HumnanPlayer
+
+        Parameters:
+        board
         """
         self.racket.rect.y += self.speed
         if self.racket.rect.top <= 0:
@@ -149,6 +168,10 @@ class AiPlayer(Player):
     def move(self, board, ball):
         """
         The function to move AiPlayer racket in x and y directions
+
+        Parameters:
+            board
+            ball
         """
         if self.racket.rect.top < ball.rect.y - 50:
             self.racket.rect.top += self.speed
@@ -181,7 +204,7 @@ class PongGame(object):
 
     def run(self):
         """
-        The function to initialize the window 
+        The function to run the program
         """    
         light_green = (50, 205, 50)
         red = (220, 20, 60)

@@ -2,7 +2,7 @@
 Autorzy: s16497 Michał Kosiński, s17402 Aleksandra Formela
 Opis projektu: Model ewaluacji pracowników - ocena okresowa
             Wejścia:
-                    Efektywność - wyniki
+                    Efektywność - wyniki 
                     Kwalifikacje - poziom kompetencji w danym obszarze
                     Chęć rozwoju - poziom motywacji do rozwoju w określonym obszarze
             Wyjście:

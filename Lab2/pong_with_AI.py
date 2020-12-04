@@ -206,8 +206,8 @@ class PongGame(object):
 
         self.board = Board(width, height)
         self.ball = Ball(width / 2 - 15, height / 2 - 15, 30, 30, light_grey)
-        self.player = HumanPlayer(Racket(width - 20, height / 2 - 70, 10, 140, light_green), 0)
-        self.aiPlayer = AiPlayer(Racket(10, height / 2 - 70, 10, 140, red), 7)
+        self.player = HumanPlayer(Racket(width - 20, height / 2 - 70, 20, 140, light_green), 0)
+        self.aiPlayer = AiPlayer(Racket(10, height / 2 - 70, 20, 140, red), 7)
         self.clock = pygame.time.Clock()
         self.score_time = None
 

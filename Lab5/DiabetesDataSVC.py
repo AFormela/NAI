@@ -24,6 +24,7 @@ import pandas as pd
 from sklearn.svm import SVC
 from sklearn.metrics import classification_report
 from sklearn import datasets, metrics
+from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split 
 from sklearn.tree import DecisionTreeClassifier
 
@@ -51,9 +52,12 @@ class SvnModel:
 
         self.svclassifier.fit(X, y)
         
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2)
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.3)
 
         self.svclassifier.fit(X_train, y_train)
+
+        Y_predict = self.svclassifier.predict(X_test)
+        print('Dokładność wyniku: ' + str(round(accuracy_score(y_test, Y_predict) * 100, 2)))
 
     def getInput(self):
         """

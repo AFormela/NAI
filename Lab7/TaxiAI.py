@@ -1,7 +1,6 @@
 # Autorzy: Aleksandra Formela s17402 i Michał Kosiński s16497
 # Materiały pomocnicze: 
 # https://gym.openai.com/envs/Taxi-v3/
-# https://www.learndatasci.com/tutorials/reinforcement-q-learning-scratch-python-openai-gym/
 # https://gym.openai.com/docs/
 # Opis problemu: Nauczanie ze wzmocnieniem na przykładzie gry Taxi-v3
 

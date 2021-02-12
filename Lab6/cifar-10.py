@@ -14,7 +14,7 @@ from tensorflow.keras import datasets, layers, models
 # Preparing sets from cifar10 data set
 (train_images, train_labels), (test_images, test_labels) = datasets.cifar10.load_data()
 
-# Dividing of image sets to 256
+# Dividing of image sets to 255
 train_images, test_images = train_images / 255.0, test_images / 255.0
 
 class_names = ['airplane', 'automobile', 'bird', 'cat', 'deer',
